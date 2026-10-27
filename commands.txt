@@ -55,3 +55,27 @@ cp ../meridian-reference/backend/config/settings.py backend/config/settings.py
 uv run python -c "from config.settings import settings; 
 from langchain_google_genai import ChatGoogleGenerativeAI as G; 
 print(G(model=settings.llm_model_name, google_api_key=settings.GOOGLE_API_KEY).invoke('Reply with exactly: hello').text)"
+
+
+
+  git remote set-url origin https://github.com/hsin2002/meridian-ai-GCP.git
+  git remote -v
+  git branch -M main
+  git push -u origin main
+
+
+  export PROJECT_ID="meridian-ai-public"        # Windows PowerShell: $env:PROJECT_ID="YOUR_PROJECT_ID"
+
+gcloud iam service-accounts create github-deployer \
+  --display-name="GitHub Actions Deployer" --project=$PROJECT_ID
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-deployer@${PROJECT_ID}.iam.gserviceaccount.com" \
+  --role="roles/editor"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-deployer@${PROJECT_ID}.iam.gserviceaccount.com" \
+  --role="roles/resourcemanager.projectIamAdmin"
+
+gcloud iam service-accounts keys create github-deployer-key.json \
+  --iam-account=github-deployer@${PROJECT_ID}.iam.gserviceaccount.com
