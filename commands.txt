@@ -58,10 +58,11 @@ print(G(model=settings.llm_model_name, google_api_key=settings.GOOGLE_API_KEY).i
 
 
 
-  git remote set-url origin https://github.com/hsin2002/meridian-ai-GCP.git
-  git remote -v
-  git branch -M main
-  git push -u origin main
+  git status
+  git add .
+  git commit -m "New change"
+
+  git push origin main
 
 
   export PROJECT_ID="meridian-ai-public"        # Windows PowerShell: $env:PROJECT_ID="YOUR_PROJECT_ID"
