@@ -1,5 +1,5 @@
 # Putting Meridian AI on Google Cloud
-
+ 
 This page explains how to run the app on the internet and use document Q&A. It is written step by step. If a word is new, a short explanation follows it.
 
 **Time:** about 30 minutes of work, plus 30–45 minutes of waiting the first time.
