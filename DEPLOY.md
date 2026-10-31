@@ -1,4 +1,4 @@
-# Putting Meridian AI on Google Cloud
+# Putting Meridian AI on Google Cloud 
  
 This page explains how to run the app on the internet and use document Q&A. It is written step by step. If a word is new, a short explanation follows it.
 
